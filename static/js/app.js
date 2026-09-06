@@ -38,7 +38,7 @@ function render() {
 		<article class="employee-card">
 			<div class="avatar">${employee.name.charAt(0).toUpperCase()}</div>
 			<div class="employee-info"><h3>${employee.name}</h3><p>${employee.role} · ${employee.department}</p><a href="mailto:${employee.email}">${employee.email}</a></div>
-			<div class="employee-actions"><span class="salary">$${Number(employee.salary).toLocaleString()}</span><button data-action="edit" data-id="${employee.id}" aria-label="Edit ${employee.name}">Edit</button><button data-action="delete" data-id="${employee.id}" aria-label="Delete ${employee.name}">Delete</button></div>
+			<div class="employee-actions"><span class="salary">INR ${Number(employee.salary).toLocaleString("en-IN")}</span><button data-action="edit" data-id="${employee.id}" aria-label="Edit ${employee.name}">Edit</button><button data-action="delete" data-id="${employee.id}" aria-label="Delete ${employee.name}">Delete</button></div>
 		</article>`).join("") : '<p class="empty-state">No employees match that search.</p>';
 }
 
