@@ -57,7 +57,7 @@ A simple web application for managing employee records through a browser-based d
    python main.py
    ```
 
-5. Open `https://employee-management-system-2026-9sst.onrender.com` in your browser.
+
 
 
 
