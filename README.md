@@ -70,9 +70,6 @@ This project includes a `render.yaml` blueprint for deployment on Render.
 
 The default SQLite database is stored in the deployment filesystem. On free hosting, that filesystem may be reset during redeployments or restarts; use a persistent disk or external database when production data must survive.
 
-## Screenshots
-
-Add application screenshots here.
 
 ## Author
 
