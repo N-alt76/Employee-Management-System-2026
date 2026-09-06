@@ -61,11 +61,7 @@ A simple web application for managing employee records through a browser-based d
 
 ## Screenshots
 
-Screenshots will be added here.
-
-## Live Demo
-
-Not deployed yet.
+Add application screenshots here.
 
 ## Author
 
