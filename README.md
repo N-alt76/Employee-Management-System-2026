@@ -59,9 +59,6 @@ A simple web application for managing employee records through a browser-based d
 
 5. Open `http://127.0.0.1:5000` in your browser.
 
-## Screenshots
-
-Add application screenshots here.
 
 ## Author
 
