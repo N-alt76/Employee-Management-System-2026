@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: employee-management-system-2026
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT main:app
+    healthCheckPath: /
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_DIR
+        value: /tmp/employee-management-data

@@ -57,7 +57,18 @@ A simple web application for managing employee records through a browser-based d
    python main.py
    ```
 
-5. Open `http://127.0.0.1:5000` in your browser.
+5. Open `http://localhost:5000` in your browser.
+
+## Deployment
+
+This project includes a `render.yaml` blueprint for deployment on Render.
+
+1. Push the repository to GitHub.
+2. In Render, choose **New > Blueprint** and select this repository.
+3. Render installs the dependencies and starts the app with Gunicorn on the platform-provided port.
+4. Set `SECRET_KEY` in Render if you want to replace the generated value.
+
+The default SQLite database is stored in the deployment filesystem. On free hosting, that filesystem may be reset during redeployments or restarts; use a persistent disk or external database when production data must survive.
 
 ## Screenshots
 

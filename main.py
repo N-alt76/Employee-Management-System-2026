@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template
 
 from config import SECRET_KEY
@@ -22,4 +24,7 @@ app = create_app()
 
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	host = os.environ.get("HOST", "127.0.0.1")
+	port = int(os.environ.get("PORT", "5000"))
+	debug = os.environ.get("FLASK_DEBUG", "0").lower() in {"1", "true", "yes"}
+	app.run(host=host, port=port, debug=debug)
