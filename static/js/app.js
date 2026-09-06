@@ -2,9 +2,30 @@ const form = document.querySelector("#employee-form");
 const list = document.querySelector("#employee-list");
 const search = document.querySelector("#search");
 const message = document.querySelector("#form-message");
+const themeToggle = document.querySelector("#theme-toggle");
+const themeIcon = themeToggle.querySelector(".theme-icon");
+const themeLabel = themeToggle.querySelector(".theme-label");
 let employees = [];
 
 const fields = ["name", "email", "department", "role", "salary"];
+
+function applyTheme(theme) {
+	document.documentElement.dataset.theme = theme;
+	const isDark = theme === "dark";
+	themeIcon.textContent = isDark ? "☀" : "☾";
+	themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+	themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+	themeToggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+}
+
+const savedTheme = localStorage.getItem("employee-management-theme") || "light";
+applyTheme(savedTheme === "dark" ? "dark" : "light");
+
+themeToggle.addEventListener("click", () => {
+	const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+	localStorage.setItem("employee-management-theme", nextTheme);
+	applyTheme(nextTheme);
+});
 
 function render() {
 	const query = search.value.toLowerCase().trim();

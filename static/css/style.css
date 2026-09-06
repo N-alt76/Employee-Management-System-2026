@@ -3,9 +3,26 @@
   --muted: #6c7971;
   --line: #dce5df;
   --paper: #f7f8f4;
+  --wash: #edf6ef;
+  --input-line: #aebcb3;
   --accent: #e27d52;
   --accent-dark: #bd5934;
   --mint: #dceee5;
+  --button-ink: #ffffff;
+  --shadow: rgba(23, 37, 31, 0.08);
+}
+[data-theme="dark"] {
+  --ink: #edf5ef;
+  --muted: #aabbb0;
+  --line: #304238;
+  --paper: #121a16;
+  --wash: #1c3028;
+  --input-line: #5c7467;
+  --accent: #f09267;
+  --accent-dark: #ffad82;
+  --mint: #254438;
+  --button-ink: #17251f;
+  --shadow: rgba(0, 0, 0, 0.25);
 }
 * {
   box-sizing: border-box;
@@ -14,7 +31,7 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at 15% 10%, #edf6ef 0, transparent 35%), var(--paper);
+    radial-gradient(circle at 15% 10%, var(--wash) 0, transparent 35%), var(--paper);
   font-family: Georgia, "Times New Roman", serif;
 }
 .shell {
@@ -23,6 +40,7 @@ body {
   padding: 62px 0 80px;
 }
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 32px;
@@ -86,6 +104,32 @@ h3 {
     12px Arial,
     sans-serif;
 }
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: start;
+  min-height: 36px;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: transparent;
+  box-shadow: 0 4px 14px var(--shadow);
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+.theme-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+.theme-label {
+  font-size: 11px;
+  font-weight: 700;
+}
 .workspace {
   display: grid;
   grid-template-columns: 290px 1fr;
@@ -117,7 +161,7 @@ input {
   margin-top: 7px;
   padding: 11px 0;
   border: 0;
-  border-bottom: 1px solid #aebcb3;
+  border-bottom: 1px solid var(--input-line);
   outline: 0;
   color: var(--ink);
   background: transparent;
@@ -146,7 +190,7 @@ button {
   margin-top: 14px;
   padding: 14px 16px;
   border: 0;
-  color: white;
+  color: var(--button-ink);
   background: var(--accent);
   font-weight: 700;
 }
@@ -250,6 +294,12 @@ button {
   .header {
     align-items: start;
     flex-direction: column;
+    padding-top: 52px;
+  }
+  .theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
   .stat {
     width: 100%;
